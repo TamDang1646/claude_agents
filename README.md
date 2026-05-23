@@ -163,6 +163,30 @@ To install into the current directory:
 scripts/install.sh
 ```
 
+Install directly from GitHub without cloning:
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/TamDang1646/claude-agents-team-kit/main/install.sh | bash
+```
+
+Install into a specific repository:
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/TamDang1646/claude-agents-team-kit/main/install.sh | bash -s -- /path/to/target-repo
+```
+
+Install a tagged release:
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/TamDang1646/claude-agents-team-kit/main/install.sh | CLAUDE_AGENTS_TEAM_REF=v0.1.0 bash -s -- /path/to/target-repo
+```
+
+Use a fork or private mirror:
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/OWNER/REPO/main/install.sh | CLAUDE_AGENTS_TEAM_REPO=OWNER/REPO bash -s -- /path/to/target-repo
+```
+
 The installer writes:
 
 ```text

@@ -9,6 +9,7 @@ This kit targets project-level Claude Code configuration.
   - `.claude/agents`
   - `.claude/commands`
   - `.claude/settings.json`
+- Shell environment with `bash`, `tar`, and either `curl` or `wget` for direct remote install.
 
 ## Optional Features
 

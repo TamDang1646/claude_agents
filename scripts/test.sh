@@ -29,6 +29,7 @@ printf '== shell syntax ==\n'
 bash -n "$ROOT_DIR/scripts/install.sh"
 bash -n "$ROOT_DIR/scripts/validate.sh"
 bash -n "$ROOT_DIR/scripts/test.sh"
+bash -n "$ROOT_DIR/install.sh"
 sh -n "$ROOT_DIR/templates/claude/statusline.sh"
 
 printf '== json ==\n'
@@ -56,6 +57,7 @@ grep -q '<!-- claude-agents-team:start -->' "$TARGET/CLAUDE.md" || die "CLAUDE.m
 grep -q '# claude-agents-team:start' "$TARGET/.gitignore" || die ".gitignore marker missing"
 grep -q 'TARGET AGENT:' "$TARGET/.claude/comms/templates/brief.md" || die "brief target missing"
 grep -q 'CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS' "$TARGET/.claude/settings.json" || die "agent teams env missing"
+grep -q 'github.com/$REPO/archive/$REF.tar.gz' "$ROOT_DIR/install.sh" || die "remote installer archive URL missing"
 
 printf '== update idempotency ==\n'
 "$ROOT_DIR/scripts/install.sh" "$TARGET" update >/dev/null
