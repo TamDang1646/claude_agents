@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "example-readonly-docs": {
+      "type": "http",
+      "url": "${DOCS_MCP_URL:-https://example.com/mcp}"
+    }
+  }
+}

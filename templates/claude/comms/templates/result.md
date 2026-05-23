@@ -1,0 +1,20 @@
+# Result
+
+MESSAGE TYPE: result
+ARTIFACT ID:
+SESSION:
+AGENT:
+TARGET: coordinator
+STATUS: success | partial | blocked | failed
+SUMMARY:
+OUTPUT:
+EVIDENCE:
+VALIDATION:
+RISKS:
+NEXT:
+LOCAL ARTIFACTS:
+  READ:
+  WROTE:
+  UPDATE INDEX:
+
+## Notes

@@ -1,0 +1,77 @@
+{
+  "permissions": {
+    "ask": [
+      "Bash(git push:*)",
+      "Bash(git commit:*)",
+      "Bash(npm publish:*)",
+      "Bash(pnpm publish:*)",
+      "Bash(yarn publish:*)",
+      "Bash(docker push:*)",
+      "Bash(kubectl apply:*)",
+      "Bash(kubectl delete:*)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./secrets/**)",
+      "Read(./credentials/**)",
+      "Read(./**/*_rsa)",
+      "Read(./**/*_ed25519)",
+      "Read(./**/*.pem)",
+      "Bash(rm -rf:*)",
+      "Bash(git reset --hard:*)",
+      "Bash(git clean:*)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh \"$CLAUDE_PROJECT_DIR/.claude/hooks/session-start.sh\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh \"$CLAUDE_PROJECT_DIR/.claude/hooks/post-edit-reminder.sh\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh \"$CLAUDE_PROJECT_DIR/.claude/hooks/subagent-stop-reminder.sh\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "sh \"$CLAUDE_PROJECT_DIR/.claude/statusline.sh\"",
+    "refreshInterval": 10
+  },
+  "outputStyle": "Team Coordinator",
+  "teammateMode": "in-process",
+  "enableAllProjectMcpServers": false,
+  "enabledMcpjsonServers": [],
+  "env": {
+    "CLAUDE_AGENTS_TEAM": "enabled",
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
+    "MCP_TIMEOUT": "10000",
+    "MAX_MCP_OUTPUT_TOKENS": "25000"
+  }
+}

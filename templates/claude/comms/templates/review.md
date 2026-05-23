@@ -1,0 +1,19 @@
+# Review
+
+MESSAGE TYPE: review
+ARTIFACT ID:
+SESSION:
+AGENT: reviewer
+TARGET: coordinator
+STATUS: pass | revise | fail
+SUBJECT:
+FINDINGS:
+FIXES:
+VALIDATION GAPS:
+RESIDUAL RISK:
+LOCAL ARTIFACTS:
+  READ:
+  WROTE:
+  UPDATE INDEX:
+
+## Notes

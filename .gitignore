@@ -1,0 +1,10 @@
+# OS/editor
+.DS_Store
+*.swp
+
+# Local generated output
+*.bak.*
+tmp/
+
+# Test artifacts
+.test-output/
