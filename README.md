@@ -169,6 +169,13 @@ Install directly from GitHub without cloning:
 curl -fsSL https://raw.githubusercontent.com/TamDang1646/claude_agents/main/install.sh | bash
 ```
 
+The installer downloads the repository archive from `codeload.github.com` using:
+
+```text
+CLAUDE_AGENTS_TEAM_REPO=TamDang1646/claude_agents
+CLAUDE_AGENTS_TEAM_REF=main
+```
+
 Install into a specific repository:
 
 ```sh

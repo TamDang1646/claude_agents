@@ -12,6 +12,12 @@ scripts/install.sh /path/to/repo
 curl -fsSL https://raw.githubusercontent.com/TamDang1646/claude_agents/main/install.sh | bash -s -- /path/to/repo
 ```
 
+The bootstrap installer downloads:
+
+```text
+https://codeload.github.com/TamDang1646/claude_agents/tar.gz/main
+```
+
 Pin a release:
 
 ```sh

@@ -9,6 +9,10 @@ Initial complete repository-local Claude Code agent team kit.
 ### Added
 
 - Direct remote installer via root `install.sh`.
+
+### Fixed
+
+- Remote installer now defaults to `TamDang1646/claude_agents` and uses the `codeload.github.com` archive endpoint with clearer 404 troubleshooting.
 - Project-level `CLAUDE.md` coordinator charter.
 - Claude Code subagents: planner, researcher, coder, integrator, reviewer.
 - Slash commands for team coordination, planning, research, implementation, review, handoff, agent teams, parallel review, debugging debate, and local comms.

@@ -57,7 +57,8 @@ grep -q '<!-- claude-agents-team:start -->' "$TARGET/CLAUDE.md" || die "CLAUDE.m
 grep -q '# claude-agents-team:start' "$TARGET/.gitignore" || die ".gitignore marker missing"
 grep -q 'TARGET AGENT:' "$TARGET/.claude/comms/templates/brief.md" || die "brief target missing"
 grep -q 'CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS' "$TARGET/.claude/settings.json" || die "agent teams env missing"
-grep -q 'github.com/$REPO/archive/$REF.tar.gz' "$ROOT_DIR/install.sh" || die "remote installer archive URL missing"
+grep -q 'codeload.github.com/$REPO/tar.gz/$REF' "$ROOT_DIR/install.sh" || die "remote installer archive URL missing"
+grep -q 'TamDang1646/claude_agents' "$ROOT_DIR/install.sh" || die "remote installer default repo is wrong"
 
 printf '== update idempotency ==\n'
 "$ROOT_DIR/scripts/install.sh" "$TARGET" update >/dev/null

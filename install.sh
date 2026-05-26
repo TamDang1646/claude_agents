@@ -32,12 +32,22 @@ download() {
   local dest="$2"
 
   if command -v curl >/dev/null 2>&1; then
-    curl -fsSL "$url" -o "$dest"
+    curl -fsSL "$url" -o "$dest" || return 1
   elif command -v wget >/dev/null 2>&1; then
-    wget -qO "$dest" "$url"
+    wget -qO "$dest" "$url" || return 1
   else
     die "curl or wget is required"
   fi
+}
+
+validate_repo() {
+  case "$REPO" in
+    */*)
+      ;;
+    *)
+      die "CLAUDE_AGENTS_TEAM_REPO must be in owner/name form, got: $REPO"
+      ;;
+  esac
 }
 
 case "$TARGET_DIR" in
@@ -54,13 +64,29 @@ cleanup() {
 trap cleanup EXIT
 
 ARCHIVE="$TMP_DIR/source.tar.gz"
-URL="https://github.com/$REPO/archive/$REF.tar.gz"
+URL="https://codeload.github.com/$REPO/tar.gz/$REF"
 
+validate_repo
 printf 'Downloading %s@%s\n' "$REPO" "$REF"
-download "$URL" "$ARCHIVE"
+if ! download "$URL" "$ARCHIVE"; then
+  cat >&2 <<EOF
+error: failed to download archive:
+  $URL
+
+Check:
+  - repository exists and is accessible: https://github.com/$REPO
+  - branch/tag/ref exists: $REF
+  - override repo if needed:
+      CLAUDE_AGENTS_TEAM_REPO=TamDang1646/claude_agents
+  - override ref if needed:
+      CLAUDE_AGENTS_TEAM_REF=main
+EOF
+  exit 1
+fi
 
 tar -xzf "$ARCHIVE" -C "$TMP_DIR"
 SOURCE_DIR="$(find "$TMP_DIR" -mindepth 1 -maxdepth 1 -type d | head -n 1)"
 [[ -n "$SOURCE_DIR" ]] || die "downloaded archive did not contain a source directory"
+[[ -x "$SOURCE_DIR/scripts/install.sh" ]] || die "downloaded archive is missing scripts/install.sh"
 
 "$SOURCE_DIR/scripts/install.sh" "$TARGET_DIR" "$MODE"
