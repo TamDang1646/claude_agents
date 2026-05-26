@@ -166,19 +166,19 @@ scripts/install.sh
 Install directly from GitHub without cloning:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/TamDang1646/claude-agents-team-kit/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/TamDang1646/claude_agents/main/install.sh | bash
 ```
 
 Install into a specific repository:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/TamDang1646/claude-agents-team-kit/main/install.sh | bash -s -- /path/to/target-repo
+curl -fsSL https://raw.githubusercontent.com/TamDang1646/claude_agents/main/install.sh | bash -s -- /path/to/target-repo
 ```
 
 Install a tagged release:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/TamDang1646/claude-agents-team-kit/main/install.sh | CLAUDE_AGENTS_TEAM_REF=v0.1.0 bash -s -- /path/to/target-repo
+curl -fsSL https://raw.githubusercontent.com/TamDang1646/claude_agents/main/install.sh | CLAUDE_AGENTS_TEAM_REF=v0.1.0 bash -s -- /path/to/target-repo
 ```
 
 Use a fork or private mirror:

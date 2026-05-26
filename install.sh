@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-REPO="${CLAUDE_AGENTS_TEAM_REPO:-TamDang1646/claude-agents-team-kit}"
+REPO="${CLAUDE_AGENTS_TEAM_REPO:-TamDang1646/claude_agents}"
 REF="${CLAUDE_AGENTS_TEAM_REF:-main}"
 TARGET_DIR="${1:-$(pwd)}"
 MODE="${2:-install}"
@@ -16,8 +16,8 @@ Environment:
   CLAUDE_AGENTS_TEAM_REF    Branch, tag, or commit to install from.
 
 Examples:
-  curl -fsSL https://raw.githubusercontent.com/TamDang1646/claude-agents-team-kit/main/install.sh | bash
-  curl -fsSL https://raw.githubusercontent.com/TamDang1646/claude-agents-team-kit/main/install.sh | bash -s -- /path/to/repo
+  curl -fsSL https://raw.githubusercontent.com/TamDang1646/claude_agents/main/install.sh | bash
+  curl -fsSL https://raw.githubusercontent.com/TamDang1646/claude_agents/main/install.sh | bash -s -- /path/to/repo
   CLAUDE_AGENTS_TEAM_REF=v0.1.0 bash install.sh /path/to/repo
 USAGE
 }

@@ -9,13 +9,13 @@ scripts/install.sh /path/to/repo
 ## Install Without Cloning
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/TamDang1646/claude-agents-team-kit/main/install.sh | bash -s -- /path/to/repo
+curl -fsSL https://raw.githubusercontent.com/TamDang1646/claude_agents/main/install.sh | bash -s -- /path/to/repo
 ```
 
 Pin a release:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/TamDang1646/claude-agents-team-kit/main/install.sh | CLAUDE_AGENTS_TEAM_REF=v0.1.0 bash -s -- /path/to/repo
+curl -fsSL https://raw.githubusercontent.com/TamDang1646/claude_agents/main/install.sh | CLAUDE_AGENTS_TEAM_REF=v0.1.0 bash -s -- /path/to/repo
 ```
 
 ## Update
@@ -33,7 +33,7 @@ scripts/install.sh /path/to/repo remove
 Remove without cloning:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/TamDang1646/claude-agents-team-kit/main/install.sh | bash -s -- /path/to/repo remove
+curl -fsSL https://raw.githubusercontent.com/TamDang1646/claude_agents/main/install.sh | bash -s -- /path/to/repo remove
 ```
 
 ## Validate Templates
